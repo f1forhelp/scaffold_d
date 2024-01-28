@@ -1,61 +1,23 @@
 import 'package:args/args.dart';
+import 'package:collection/collection.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:path/path.dart' as path;
 
-const String version = '0.0.1';
+part 'src/cli_parser.dart';
+part 'src/generator.dart';
+part 'src/utils.dart';
+part 'src/models/scaffold_d_conf.dart';
 
-ArgParser buildParser() {
-  return ArgParser()
-    ..addFlag(
-      'help',
-      abbr: 'h',
-      negatable: false,
-      help: 'Print this usage information.',
-    )
-    ..addFlag(
-      'verbose',
-      abbr: 'v',
-      negatable: false,
-      help: 'Show additional command output.',
-    )
-    ..addFlag(
-      'version',
-      negatable: false,
-      help: 'Print the tool version.',
-    );
-}
+void main(List<String> arguments) async {
+  final _CliParser argParser = _CliParser();
+  // ANSI escape codes for text color
 
-void printUsage(ArgParser argParser) {
-  print('Usage: dart scaffold_d.dart <flags> [arguments]');
-  print(argParser.usage);
-}
-
-void main(List<String> arguments) {
-  final ArgParser argParser = buildParser();
   try {
-    final ArgResults results = argParser.parse(arguments);
-    bool verbose = false;
-
-    // Process the parsed arguments.
-    if (results.wasParsed('help')) {
-      printUsage(argParser);
-      return;
-    }
-    if (results.wasParsed('version')) {
-      print('scaffold_d version: $version');
-      return;
-    }
-    if (results.wasParsed('verbose')) {
-      verbose = true;
-    }
-
-    // Act on the arguments provided.
-    print('Positional arguments: ${results.rest}');
-    if (verbose) {
-      print('[VERBOSE] All arguments: ${results.arguments}');
-    }
-  } on FormatException catch (e) {
-    // Print usage information if an invalid argument was provided.
-    print(e.message);
-    print('');
-    printUsage(argParser);
+    _ScaffoldDConf scaffoldDConf = await _Utils.parseSourceGen();
+    final _Generator generator = _Generator(scaffoldDConf);
+    argParser.parse(arguments, generator: generator);
+  } catch (e) {
+    _Utils.logError(e.toString());
   }
 }

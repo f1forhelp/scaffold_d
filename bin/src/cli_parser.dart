@@ -1,4 +1,4 @@
-part of "../generic_gen.dart";
+part of "../scaffold_d.dart";
 
 class _CliParser {
   final String version = '0.0.1';
@@ -10,7 +10,7 @@ class _CliParser {
     );
 
   void printUsage() {
-    _Utils.logInfo('Usage: dart run generic_gen <flags> [arguments]');
+    _Utils.logInfo('Usage: dart run scaffold_d <flags> [arguments]');
     _Utils.logInfo(_argParser.usage);
   }
 

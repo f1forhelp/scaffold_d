@@ -1,7 +1,7 @@
-part of "../generic_gen.dart";
+part of "../scaffold_d.dart";
 
 class _Generator {
-  final _GenericGenConf sourceGenConf;
+  final _ScaffoldDConf sourceGenConf;
 
   _Generator(this.sourceGenConf);
 

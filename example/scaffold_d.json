@@ -1,0 +1,25 @@
+{
+    "template": [
+        {
+            "templateName": "provider",
+            "source": "templates/provider_template",
+            "op": "lib/features/auth",
+            "identifierMapping": [
+                {
+                    "name": "_$Provider",
+                    "replaceWith": "AuthProvider"
+                },
+                {
+                    "name": "repo",
+                    "replaceWith": "AuthRepo"
+                }
+            ]
+        }
+    ],
+    "extensionMapping": [
+        {
+            "name": "gg",
+            "replaceWith": "dart"
+        }
+    ]
+}

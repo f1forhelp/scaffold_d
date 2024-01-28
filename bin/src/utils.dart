@@ -1,17 +1,17 @@
-part of "../generic_gen.dart";
+part of "../scaffold_d.dart";
 
 class _Utils {
   _Utils._();
 
-  static Future<_GenericGenConf> parseSourceGen() async {
-    final File sourceGenFile = File('${path.current}/generic_gen.json');
+  static Future<_ScaffoldDConf> parseSourceGen() async {
+    final File sourceGenFile = File('${path.current}/scaffold_d.json');
     if (!await sourceGenFile.exists()) {
-      throw Exception('generic_gen.json not found');
+      throw Exception('scaffold_d.json not found');
     }
     final String sourceGenJson = await sourceGenFile.readAsString();
     final Map<String, dynamic> sourceGenMap =
         jsonDecode(sourceGenJson) as Map<String, dynamic>;
-    return _GenericGenConf.fromJson(sourceGenMap);
+    return _ScaffoldDConf.fromJson(sourceGenMap);
   }
 
   static logError(String message) {

@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-part of "../../generic_gen.dart";
+part of "../../scaffold_d.dart";
 
-class _GenericGenConf {
+class _ScaffoldDConf {
   late List<_Template> template;
   late List<_KeyValueMapping> extensionMapping;
   // late List<_KeyValueMapping> identifierMapping;
 
-  _GenericGenConf.fromJson(Map<String, dynamic> json) {
+  _ScaffoldDConf.fromJson(Map<String, dynamic> json) {
     if (json['template'] != null) {
       template = <_Template>[];
       json['template'].forEach((v) {
@@ -80,7 +80,7 @@ class _KeyValueMapping {
   }
 }
 
-// For reference, here is the generic_gen.json file:
+// For reference, here is the scaffold_d.json file:
 // {
 //     "template": [
 //         {
