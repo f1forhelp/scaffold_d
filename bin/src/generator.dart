@@ -92,14 +92,11 @@ class _Generator {
       } else {
         _identifierMapping(path: fs.path, identifiers: identifiers);
 
-        _Utils.logSuccess(fs.uri.pathSegments.toString());
         if (fs.uri.pathSegments.length >= 2) {
           String folderName =
               fs.uri.pathSegments[fs.uri.pathSegments.length - 2];
-          _Utils.logError(folderName);
           for (var identi in identifiers) {
             if (folderName == identi.name) {
-              _Utils.logError(identi.replaceWith);
               fs.rename('${fs.parent.path}/${identi.replaceWith}');
               break;
             }

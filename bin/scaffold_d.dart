@@ -17,6 +17,7 @@ void main(List<String> arguments) async {
     _ScaffoldDConf scaffoldDConf = await _Utils.parseSourceGen();
     final _Generator generator = _Generator(scaffoldDConf);
     argParser.parse(arguments, generator: generator);
+    _Utils.logSuccess('Done');
   } catch (e) {
     _Utils.logError(e.toString());
   }
