@@ -1,7 +1,7 @@
 {
     "template": [
         {
-            "templateName": "provider",
+            "templateName": "provider", 
             "source": "templates/provider_template",
             "op": "lib/features/auth",
             "identifierMapping": [

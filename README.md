@@ -14,3 +14,48 @@ A feature-rich command-line interface (CLI) designed for Flutter applications
 ```bash
     dart pub global activate scaffold_d
 ```
+
+- Create file scaffold_d.json in your project root directory.
+- Configure scaffold_d.json by using following options.
+```
+{
+    "template": [
+        {
+            "templateName": "provider",
+            "source": "templates/provider_template",
+            "op": "lib/features/auth",
+            "identifierMapping": [
+                {
+                    "name": "_$Provider",
+                    "replaceWith": "AuthProvider"
+                },
+                {
+                    "name": "repo",
+                    "replaceWith": "AuthRepo"
+                }
+            ]
+        }
+    ],
+    "extensionMapping": [
+        {
+            "name": "gg",
+            "replaceWith": "dart"
+        }
+    ]
+}
+```
+
+## Usage
+
+Run below command in terminal .
+
+```
+dart run scaffold_d --template=providder
+```
+or
+```
+dart run scaffold_d -t=providder
+```
+
+### [Example](https://github.com/f1forhelp/scaffold_d/tree/main/example)
+[https://github.com/f1forhelp/scaffold_d/tree/main/example](https://github.com/f1forhelp/scaffold_d/tree/main/example)

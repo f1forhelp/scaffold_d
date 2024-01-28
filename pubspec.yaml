@@ -1,7 +1,7 @@
 name: scaffold_d
-description: A sample command-line application with basic argument parsing.
-homepage: https://www.example.com
-repository: https://www.example.com
+homepage: https://github.com/f1forhelp/generic_gen
+repository: https://github.com/f1forhelp/generic_gen
+issue_tracker: https://github.com/f1forhelp/generic_gen/issues
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 
